@@ -3,11 +3,12 @@
 <html>
     <head>
         <link rel="stylesheet" type="text/css" href="css/dopify-site.css">
+        <title>Dopeify</title>
     </head>
 
     <body style = "background-color:#ecf0f1;">
         <main>
-            <%- include('nav.html')%>
+            <%- include('nav')%>
             <h1>Dopeify!</h1>
             <form id='new_task' action="tasks/create/" method=POST>
                 <textarea id='task-body' type='text' name="task" placeholder="What's next?" ></textarea>

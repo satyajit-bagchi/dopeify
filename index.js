@@ -3,10 +3,8 @@
 
 // Requirements
 var express = require('express');
-var mysql = require('mysql');
 var app = express();
 var bodyParser = require('body-parser');
-var moment = require('moment');
 var admin = require('firebase-admin');
 var firebase = require('firebase');
 // Init
@@ -19,37 +17,41 @@ app.use(express.static('./public'));
 
 var port = process.env.PORT || 8000;
 
-
-//Firebasey stuff
-var serviceAccount = require("./dopify-firedb-firebase-adminsdk-5sqig-93ef844d5e.json");
+// Firebasey stuff
+var serviceAccount = require('./dopify-firedb-firebase-adminsdk-5sqig-93ef844d5e.json');
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
-  databaseURL: "https://dopify-firedb.firebaseio.com"
+  databaseURL: 'https://dopify-firedb.firebaseio.com'
 });
 
 var db = admin.database();
 var ref = db.ref();
 
 var config = {
-  apiKey: "AIzaSyBJR3_4kOR4e68d6WI6rdV2tlgCmnfHsQU",
-  authDomain: "dopify-firedb.firebaseapp.com",
-  databaseURL: "https://dopify-firedb.firebaseio.com",
-  projectId: "dopify-firedb",
-  storageBucket: "dopify-firedb.appspot.com",
-  messagingSenderId: "98312933889"
+  apiKey: 'AIzaSyBJR3_4kOR4e68d6WI6rdV2tlgCmnfHsQU',
+  authDomain: 'dopify-firedb.firebaseapp.com',
+  databaseURL: 'https://dopify-firedb.firebaseio.com',
+  projectId: 'dopify-firedb',
+  storageBucket: 'dopify-firedb.appspot.com',
+  messagingSenderId: '98312933889'
 };
 firebase.initializeApp(config);
+//var user = firebase.auth().currentUser;
 
+var user = firebase.auth().onAuthStateChanged(function(user) {
+  if (user) {
+    // User is signed in.
+    console.log('Signed in');
+  } else {
+    // No user is signed in.
+    console.log('Not Signed in');
+  }
+});
 
 app.listen(port, function() {
   console.log('Web server listening on port 8000!');
 });
-/*
-ref.push({task: 'Make cool shit', owner:'Satya'});
-ref.push({task: 'Take over the world', owner:'Satya'});
-ref.push({task: 'Fight off cold', owner:'Somshree'});
-ref.push({task: 'Learn to take quick showers', owner:'Somshree'});
-*/
+
 app.get('/', function(req, res) {
   ref.once("value", function(snapshot) {
     var task_list = snapshot.val();
@@ -57,12 +59,30 @@ app.get('/', function(req, res) {
     //console.log(task_list);
     res.render('main-page', {
       tasks: task_list,
-      keys: task_keys
+      keys: task_keys,
+      user: user
     });
   }, function(errorObject) {
     console.log(errorObject)
   });
+
+  console.log(user);
 });
+
+app.get('/profile', function(req, res) {
+  var curruser = firebase.auth().currentUser;
+  var name, email, photoUrl, uid, emailVerified;
+  if (curruser) {
+    name = curruser.displayName;
+    email = curruser.email;
+    photoUrl = curruser.photoURL;
+    emailVerified = curruser.emailVerified;
+    uid = curruser.uid;
+    res.render('profile', {name: name, email:email, photoUrl: photoUrl, emailVerified: emailVerified, uid:uid});
+  } else {
+    res.send('No user logged in');
+  }
+})
 
 function gotData(data) {
   //console.log(data.val());
@@ -112,23 +132,22 @@ app.get('/login', function(req, res) {
 })
 
 app.post('/signup/new', function(req, res) {
-  var uname = req.body.signup_username;
-  var pwd = req.body.signup_password;
-  console.log(uname);
-  firebase.auth().createUserWithEmailAndPassword({
-    email: uname,
-    password: pwd
-  },function(error, userData) {
-
-		callback(error, userData.uid);
-
-	});
+  var email = req.body.signup_username;
+  var password = req.body.signup_password;
+  console.log(email);
+  firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
+    // Handle Errors here.
+    var errorCode = error.code;
+    var errorMessage = error.message;
+    console.log(errorMessage);
+    // ...
+  });
 
   res.redirect('/');
 
 })
 
-app.get('/about', function(req, res){
+app.get('/about', function(req, res) {
   res.render('about');
 })
 
@@ -146,7 +165,10 @@ app.post('/login', function(req, res) {
   });
   var action = 'Login';
   var action_string = 'Logged in';
-  res.render('tmp_testing_page', {action: action, action_string: action_string});
+  res.render('tmp_testing_page', {
+    action: action,
+    action_string: action_string
+  });
 });
 
 app.get('/logout', function(req, res) {
@@ -158,21 +180,15 @@ app.get('/logout', function(req, res) {
   });
   var action = 'Logout';
   var action_string = 'logged out';
-  res.render('tmp_testing_page', {action: action, action_string: action_string});
+  res.render('tmp_testing_page', {
+    action: action,
+    action_string: action_string
+  });
   setTimeout(wait_helper, 2000);
   res.redirect('/');
 });
 
-function wait_helper()
-{
+function wait_helper() {
   console.log('Waiting');
-}
 
-/*
-ref.set({
-    1: {task: 'Make cool shit', owner:'Satya'},
-    2: {task: 'Take over the world', owner:'Satya'},
-    3:{task: 'Fight off cold', owner:'Somshree'},
-    4:{task: 'Learn to take quick showers', owner:'Somshree'}
-});
-*/
+}

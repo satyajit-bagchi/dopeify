@@ -21,6 +21,7 @@ body {
 .nav > .list > .item > .link {
   font-size: 1.4rem;
   padding: 20px 10px;
+  
 }
 
 .nav-home > .list > .item > .link:hover {
