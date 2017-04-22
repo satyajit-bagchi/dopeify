@@ -60,7 +60,6 @@ app.get('/', function(req, res) {
     res.render('main-page', {
       tasks: task_list,
       keys: task_keys,
-      user: user
     });
   }, function(errorObject) {
     console.log(errorObject)
@@ -83,22 +82,6 @@ app.get('/profile', function(req, res) {
     res.send('No user logged in');
   }
 })
-
-function gotData(data) {
-  //console.log(data.val());
-  var tasks = data.val();
-  var keys = Object.keys(tasks);
-  //console.log(keys);
-  for (var i = 0; i < keys.length; i++) {
-    var k = keys[i];
-    var task = tasks[k].task;
-    console.log(task);
-  }
-}
-
-function errData(data) {
-  console.log(err);
-}
 app.post('/tasks/create', function(req, res) {
   var db = admin.database();
   var ref = db.ref();
@@ -123,6 +106,15 @@ app.get('/tasks/:id/delete', function(req, res) {
   });
   res.redirect('/');
 });
+
+app.get('/tasks/:id/done', function(req, res){
+  var key = req.params.id;
+  ref.child(key).update({
+    done: 1
+  });
+  res.redirect('/');
+
+})
 
 app.get('/signup', function(req, res) {
   res.render('signup-page');
