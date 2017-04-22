@@ -17,7 +17,7 @@ app.set('views', './views');
 app.set('view engine', 'ejs');
 app.use(express.static('./public'));
 
-var port = process.env.PORT || 8080;
+var port = process.env.PORT || 8000;
 
 
 //Firebasey stuff
@@ -41,7 +41,7 @@ var config = {
 firebase.initializeApp(config);
 
 
-app.listen(8000, function() {
+app.listen(port, function() {
   console.log('Web server listening on port 8000!');
 });
 /*
