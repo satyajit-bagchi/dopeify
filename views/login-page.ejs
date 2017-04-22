@@ -1,0 +1,24 @@
+<!-- views/main-page.ejs -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="css/dopify-site.css">
+    </head>
+    <body style = "background-color:#ecf0f1;">
+        <main>
+            <%- include('nav.html')%>
+            <form id='new_task' action="/login" method=POST>
+                <div>
+                    <input id='login_username_id' type='text' class='username-field' name="login_username" placeholder="Your username" >
+                </div>
+                <div>
+                    <input id='login_password_id'  type='password' class='password-field' name="login_password" placeholder="Super secret whateverthefuck">
+                </div>
+                <div>
+                    <button id='login_button' class = 'positive-button'>Login</button>
+                    <button id='login_button' class = 'positive-button'>Placeholder</button>
+                </div>
+            </form>
+        </main>
+    </body>
+</html>

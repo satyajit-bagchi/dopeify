@@ -1,0 +1,23 @@
+<!-- views/main-page.ejs -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="css/dopify-site.css">
+    </head>
+
+    <body style = "background-color:#ecf0f1;">
+        <main>
+            <%- include('nav.html')%>
+            <h1>Dopeify!</h1>
+            <form id='new_task' action="tasks/create/" method=POST>
+                <textarea id='task-body' type='text' name="task" placeholder="What's next?" ></textarea>
+                <button id='create_button'>Create</button>
+            </form>
+            <p><strong>Todo</strong></p>
+            <%for(var i=0;i<keys.length;i++){%>
+                <% var k = keys[i];%>
+                <%- include('_task', {item: tasks[k], key: k, no: i});%>
+            <%}%>
+        </main>
+    </body>
+</html>
