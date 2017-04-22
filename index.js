@@ -17,6 +17,8 @@ app.set('views', './views');
 app.set('view engine', 'ejs');
 app.use(express.static('./public'));
 
+var port = process.env.PORT || 8080;
+
 
 //Firebasey stuff
 var serviceAccount = require("./dopify-firedb-firebase-adminsdk-5sqig-93ef844d5e.json");
