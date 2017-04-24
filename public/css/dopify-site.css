@@ -21,7 +21,7 @@ body {
 .nav > .list > .item > .link {
   font-size: 1.4rem;
   padding: 20px 10px;
-  
+
 }
 
 .nav-home > .list > .item > .link:hover {
@@ -32,6 +32,15 @@ body {
   list-style: none;
   margin: 0;
   padding: 0 13px 0;
+}
+#meow {
+  color: #ffffff;
+  font-size: 20px;
+  padding: 7px 8px;
+  background-color: #00acc1;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  cursor: pointer;
 }
 
 #task-body {
