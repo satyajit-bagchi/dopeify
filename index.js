@@ -24,6 +24,7 @@ admin.initializeApp({
   databaseURL: 'https://dopify-firedb.firebaseio.com'
 });
 
+//var firebaseui = require('firebaseui');
 var db = admin.database();
 var ref = db.ref();
 
@@ -67,6 +68,10 @@ app.get('/', function(req, res) {
 
   console.log(user);
 });
+
+app.get('/login_page', function(req, res){
+  res.render('tmp_login_page');
+})
 
 app.get('/profile', function(req, res) {
   var curruser = firebase.auth().currentUser;
