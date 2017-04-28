@@ -6,13 +6,31 @@ body {
   font-family: "Helvetica", "Arial", sans-serif;
 }
 
-#meow {
-  color: #ffffff;
-  font-size: 14px;
-  background-color: #00acc1;
+.meow{
+  background-color: rgba(52,152,219,0.9);
+  color :#ffffff;
   border: 1px solid transparent;
-  border-radius: 5px;
   cursor: pointer;
+}
+.meow:hover{
+
+  color: #ffffff;
+  background-color: rgba(52,152,219,1);
+  
+
+}
+
+.create-btn {
+  color: #ffffff;
+  border: 1px solid transparent;
+  background-color: rgba(22,160,133,0.9);
+  cursor: pointer;
+}
+.create-btn:hover,
+.create-btn:focus{
+  color: #ffffff;
+  background-color: rgba(22,160,133,1);
+
 }
 
 #task-body {
@@ -23,18 +41,38 @@ body {
   width: 100%;
 }
 
-.tmp{
-  background-color: #16a085 !important;
-  border: 1px solid transparent !important;
+/*.task> .d-inline> task-p> .del_icon {}*/
+.del-icon{
+  color: rgba(231,76,60,0.9);
 }
-.create_button {
+.del-icon:hover,
+.del-icon:focus{
+  background-color: rgba(231,76,60,1);
   color: #ffffff;
-  font-size: 14px;
-
-  border: 1px solid transparent;
-  border-radius: 10px;
-  cursor: pointer;
 }
+
+.done-icon{
+  color: rgba(39,174,96,0.9);
+}
+.done-icon:hover,
+.done-icon:focus{
+  background-color: rgba(39,174,96,0.9);
+  color: #ffffff;
+}
+
+
+
+.nav-white-link{
+  color: #ffffff !important;
+}
+/*
+.nav-white-link.a:hover{
+  background-color: #000000 !important;
+}
+*/
+
+
+
 
 #signup_button {
   color: #e1e8ed;
@@ -85,22 +123,6 @@ body {
   */
 }
 
-h1, h2, strong {
-  color: #333;
-}
-
-a {
-  color: #e74c3c;
-}
-
-a:hover {
-  color: #e81c4f;
-}
-
-pre {
-  border-left: 2px solid #69c;
-}
-
 @import 'https://fonts.googleapis.com/css?family=Roboto:300,400,500';
 body {
   font-family: "Roboto", "Helvetica", "Arial", sans-serif;
@@ -130,28 +152,14 @@ header h1 {
   font-weight: 300;
 }
 
-header a {
-  border: 1px solid #e81c4f;
-  border-radius: 290486px;
-  color: white;
-  font-size: 0.6em;
-  letter-spacing: 0.2em;
-  padding: 1em 2em;
-  text-transform: uppercase;
-  text-decoration: none;
-  transition: none 200ms ease-out;
-  transition-property: color, background;
-}
-
-header a:hover {
-  background: #e81c4f;
-  color: white;
-}
-
 .centered-text {
   text-align: center;
 }
 
 .done-toggled {
   text-decoration: line-through;
+}
+
+.navbar-custom{
+   background: linear-gradient(to top left, #7cc5f8, #3498db);
 }
