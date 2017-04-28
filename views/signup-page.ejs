@@ -1,25 +1,33 @@
 <!-- views/main-page.ejs -->
 <!DOCTYPE html>
 <html>
-    <head>
-        <link rel="stylesheet" type="text/css" href="css/dopify-site.css">
-    </head>
-    <body style = "background-color:#ecf0f1;">
-        <main>
-            <%- include('nav')%>
-            <form id='new_task' action="/signup/new" method=POST>
-                <div>
-                    <input id='signup_username_id' type='text' class='username-field'
-                    name="signup_username" placeholder="Myself Ramesh" >
-                </div>
-                <div>
-                    <input id='signup_password_id' type='password'
-                    class='password-field' name="signup_password" placeholder="Secret stuff">
-                </div>
-                <div>
-                    <button id='signup_button'>Sign up!</button>
-                </div>
-            </form>
-        </main>
-    </body>
+
+<head>
+  <link rel="stylesheet" type="text/css" href="css/dopify-site.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+
+<body>
+  <main>
+    <%- include('nav')%>
+      <div class="container-fluid">
+        <div class="col-md-2">
+        <form id='new_task' action="/signup/new" method=POST>
+          <div class="form-group">
+            <label for="signup_username">Email</label>
+            <input id='signup_username_id' type='email' class='form-control username-field' name="signup_username" placeholder="Myself Ramesh">
+          </div>
+          <div class="form-group">
+            <label for="signup_password">Password</label>
+            <input id='signup_password_id' type='password' class='form-control password-field' name="signup_password" placeholder="Secret stuff">
+          </div>
+          <div>
+            <button type="submit" class="btn btn-primary" id='signup_button'>Sign up!</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </main>
+</body>
+
 </html>

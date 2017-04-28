@@ -1,30 +1,54 @@
 <!-- views/main-page.ejs -->
 <!DOCTYPE html>
-<html>
-    <head>
-        <link rel="stylesheet" type="text/css" href="css/dopify-site.css">
-        <script src="https://cdn.firebase.com/libs/firebaseui/1.0.1/firebaseui.js"></script>
-        <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/1.0.1/firebaseui.css" />
-        <title>Dopeify</title>
-    </head>
+<html lang="en">
 
-    <body style = "background-color:#ecf0f1;">
-        <main>
-            <%- include('nav')%>
+<head>
+  <link rel="stylesheet" type="text/css" href="css/dopify-site.css">
+  <script src="https://cdn.firebase.com/libs/firebaseui/1.0.1/firebaseui.js"></script>
+  <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/1.0.1/firebaseui.css" />
+  <!--
+Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <title>Dopeify</title>
+</head>
+<%- include('nav')%>
+<body style="background-color:#ecf0f1;">
+  <main>
+
+      <div class="container">
+        <div class="row centered-text">
             <h1>Dopeify!</h1>
-            <form id='new_task' action="tasks/create/" method=POST>
-                <textarea id='task-body' type='text' name="task" placeholder="What's next?" ></textarea>
-                <button id='create_button'>Create</button>
-            </form>
-            <p><strong>Todo</strong></p>
-            <%for(var i=0;i<keys.length;i++){%>
-                <% var k = keys[i];%>
-                <%- include('_task', {item: tasks[k], key: k, no: i});%>
-            <%}%>
-            <div>
-                <a id="meow" href="https://www.youtube.com/watch?v=DCIKtAV72tM">Meow</a>
-            </div>
+        </div>
 
-        </main>
-    </body>
+        <div class="row ">
+          <div class="col-md-4">
+            <form id='new_task' action="tasks/create/" method=POST>
+              <div class="form-group">
+                <!--TODO modify width-->
+                <div>
+                  <textarea type="text" class="form-control" rows="3" id='task-body' type='text' name="task" placeholder="What's next?"></textarea>
+                </div>
+                  <button type="submit" class="btn btn-primary" id='create_button'>Create</button>
+                  <a class="btn btn-default" type="button" id="meow" href="https://www.youtube.com/watch?v=DCIKtAV72tM">Meow</a>
+              </div>
+
+           </form>
+          </div>
+
+        </div>
+        <div class="row">
+          <div class="col-md-8">
+          <h2>Todo</h2>
+            <%for(var i=0;i<keys.length;i++){%>
+              <% var k =keys[i];%>
+                <%- include('_task', {item: tasks[k], key: k, no: i});%>
+                  <%}%>
+          </div>
+        </div>
+      </div>
+  </main>
+</body>
+
 </html>

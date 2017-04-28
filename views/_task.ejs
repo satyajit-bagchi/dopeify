@@ -1,5 +1,12 @@
 <article class="task">
-		<p id='task' <%if(item.done==1){console.log("foo");%> style="text-decoration:line-through"<%}%>><%=no+1;%> <%=item.task%><a href='/tasks/<%=key%>/delete'> Delete</a>
-
-		<a href= '/tasks/<%=key%>/done'>Done</a></p>
+		<div class="d-inline">
+			<p class='task-p' id='task' <%if(item.done==1){console.log("foo");%> style="text-decoration:line-through"<%}%>><%=no+1;%> <%=item.task%>
+			<a class="btn btn-default" id="done-btn" type="button" aria-label="Done" href='/tasks/<%=key%>/done'>
+				<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+			</a>
+			<a class="btn btn-default"type="button"aria-label="Delete" href='/tasks/<%=key%>/delete'>
+				<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+			</a>
+			</p>
+		</div>
 </article>

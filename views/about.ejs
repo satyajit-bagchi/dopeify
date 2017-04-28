@@ -4,7 +4,6 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>About</title>
-
     <style media="screen">
       body { background: #ECEFF1; color: rgba(0,0,0,0.87); font-family: Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; }
       #message { background: white; max-width: 360px; margin: 100px auto 16px; padding: 32px 24px 16px; border-radius: 3px; }
@@ -20,10 +19,12 @@
         body { border-top: 16px solid #ffa100; }
       }
     </style>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="css/dopify-site.css">
   </head>
   <%- include('nav')%>
   <body>
+    <div class="container-fluid">
     <div id="message">
       <h2>About</h2>
       <h1>Dopeify</h1>
@@ -31,5 +32,6 @@
       <h3>But Why?</h3>
       <p>Good. Fucking. Question.
     </div>
+  </div>
   </body>
 </html>

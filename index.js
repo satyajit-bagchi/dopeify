@@ -69,6 +69,8 @@ app.get('/', function(req, res) {
   console.log(user);
 });
 
+
+
 app.get('/login_page', function(req, res){
   res.render('tmp_login_page');
 })
