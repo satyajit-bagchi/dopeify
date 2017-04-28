@@ -6,13 +6,12 @@ body {
   font-family: "Helvetica", "Arial", sans-serif;
 }
 
-
 #meow {
   color: #ffffff;
-  padding: 7px 8px;
+  font-size: 14px;
   background-color: #00acc1;
   border: 1px solid transparent;
-  border-radius: 10px;
+  border-radius: 5px;
   cursor: pointer;
 }
 
@@ -20,31 +19,24 @@ body {
   font-size: 14px;
   margin-bottom: 8px;
   padding: 8px 10px 8px 10px;
-
   border-radius: 8px;
-
   width: 100%;
 }
 
-#create_button {
-
+.tmp{
+  background-color: #16a085 !important;
+  border: 1px solid transparent !important;
+}
+.create_button {
   color: #ffffff;
-
   font-size: 14px;
 
-  background-color: #16a085;
-
   border: 1px solid transparent;
-
   border-radius: 10px;
-
   cursor: pointer;
-
 }
 
-
 #signup_button {
-
   color: #e1e8ed;
   font-size: 14px;
   padding: 7px 8px;
@@ -52,11 +44,10 @@ body {
   border: 1px solid transparent;
   border-radius: 10px;
   cursor: pointer;
-
 }
 
-#signup_button:hover{
-  color:#3368db;
+#signup_button:hover {
+  color: #3368db;
 }
 
 .username-field {
@@ -68,7 +59,6 @@ body {
   width: 25%;
 }
 
-
 .password-field {
   font-size: 14px;
   margin-bottom: 8px;
@@ -78,7 +68,7 @@ body {
   width: 25%;
 }
 
-.positive-button{
+.positive-button {
   color: #e1e8ed;
   font-size: 14px;
   padding: 7px 8px;
@@ -86,8 +76,8 @@ body {
   border: 1px solid transparent;
   border-radius: 10px;
   cursor: pointer;
-
 }
+
 body {
   /*
   line-height: 1.5;
@@ -95,33 +85,23 @@ body {
   */
 }
 
-
-
-
-
-h1,
-h2,
-strong {
+h1, h2, strong {
   color: #333;
 }
 
-
 a {
   color: #e74c3c;
-
 }
-a:hover{
+
+a:hover {
   color: #e81c4f;
 }
-
-
 
 pre {
   border-left: 2px solid #69c;
 }
 
 @import 'https://fonts.googleapis.com/css?family=Roboto:300,400,500';
-
 body {
   font-family: "Roboto", "Helvetica", "Arial", sans-serif;
 }
@@ -162,13 +142,16 @@ header a {
   transition: none 200ms ease-out;
   transition-property: color, background;
 }
-header a:hover {
 
-  background:  #e81c4f;
+header a:hover {
+  background: #e81c4f;
   color: white;
 }
-.centered-text{
-  text-align:center;
+
+.centered-text {
+  text-align: center;
 }
 
-.done-toggled{ text-decoration: line-through; }
+.done-toggled {
+  text-decoration: line-through;
+}
