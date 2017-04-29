@@ -75,6 +75,10 @@ app.get('/login_page', function(req, res){
   res.render('tmp_login_page');
 })
 
+app.get('/modal', function(req, res){
+  res.render('tmp_modal');
+})
+
 app.get('/profile', function(req, res) {
   var curruser = firebase.auth().currentUser;
   var name, email, photoUrl, uid, emailVerified;

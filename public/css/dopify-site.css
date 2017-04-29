@@ -16,8 +16,11 @@ body {
 
   color: #ffffff;
   background-color: rgba(52,152,219,1);
-  
 
+
+}
+.login-nav{
+  cursor: pointer;
 }
 
 .create-btn {
@@ -94,7 +97,7 @@ body {
   padding: 8px 10px 8px 10px;
   border: 1px solid #34495e;
   border-radius: 4px;
-  width: 25%;
+  width: 50%;
 }
 
 .password-field {
@@ -103,7 +106,7 @@ body {
   padding: 8px 10px 8px 10px;
   border: 1px solid #34495e;
   border-radius: 4px;
-  width: 25%;
+  width: 50%;
 }
 
 .positive-button {
